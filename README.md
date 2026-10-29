@@ -18,27 +18,34 @@ Customer churn can affect business revenue and customer retention. The objective
 
 The dataset contains customer demographics, service subscriptions, contract details, tenure, monthly charges, total charges, and churn status.
 
-## Technologies Used
+## ## Technologies Used
 
-- Python
-- Pandas and NumPy
-- Matplotlib and Seaborn
-- Scikit-learn
-- Logistic Regression
-- Streamlit
-- Joblib
+- **Programming Language:** Python
+- **Data Processing:** Pandas, NumPy
+- **Data Visualization:** Matplotlib, Seaborn
+- **Machine Learning:** Scikit-learn
+- **ML Algorithms:** Logistic Regression, Random Forest
+- **Data Preprocessing:** SimpleImputer, StandardScaler, OneHotEncoder, ColumnTransformer, Pipeline
+- **Model Evaluation:** Accuracy, Precision, Recall, F1-score, Confusion Matrix
+- **Model Persistence:** Joblib
+- **Web Application:** Streamlit
+- **Automated Testing:** Pytest
 
-## Project Workflow
+## ## Project Workflow
 
-1. Load and inspect the customer dataset.
-2. Convert `TotalCharges` to numeric values and inspect missing data.
-3. Explore churn distribution and customer characteristics.
+1. Load and inspect the IBM Telco Customer Churn dataset.
+2. Clean the data and convert `TotalCharges` to numeric values.
+3. Perform exploratory data analysis (EDA) to understand churn patterns.
 4. Separate input features from the target variable.
-5. Split data into training and testing sets.
-6. Preprocess numerical and categorical features using a scikit-learn pipeline.
-7. Train a Logistic Regression model.
-8. Evaluate predictions on held-out test data.
-9. Save the trained model and serve predictions through Streamlit.
+5. Split the dataset into training and testing sets using stratified sampling.
+6. Build preprocessing pipelines for numerical and categorical features.
+7. Train a Logistic Regression classification model.
+8. Train a Random Forest classification model for comparison.
+9. Evaluate both models using accuracy, precision, recall, and F1-score.
+10. Select Logistic Regression as the current candidate based on the comparison results.
+11. Save the trained Logistic Regression pipeline using Joblib.
+12. Build an interactive Streamlit application to predict customer churn.
+13. Write automated tests using Pytest to check model loading, predictions, and prediction probabilities.
 
 ## Model Evaluation
 
@@ -50,6 +57,17 @@ The initial Logistic Regression model produced these results on a held-out test 
 | Precision — churn class | 65.72% |
 | Recall — churn class | 55.88% |
 | F1-score — churn class | 60.40% |
+
+## Model Comparison
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|---|---:|---:|---:|---:|
+| Logistic Regression | 80.55% | 65.72% | 55.88% | 60.40% |
+| Random Forest | 77.57% | 60.00% | 46.52% | 52.41% |
+
+Logistic Regression performed better across all four metrics
+on this train/test split and was selected as the current
+candidate model.
 
 ### Confusion Matrix
 
@@ -71,10 +89,10 @@ The estimated probability is a model output, not a guarantee of future customer 
 
 ## Installation and Setup
 
-### 1. Clone the repository
+### ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/manikanta-59/customer-churn-prediction.git
 cd customer-churn-prediction
 ```
 

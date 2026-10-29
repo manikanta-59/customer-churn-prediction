@@ -94,5 +94,4 @@ print(classification_report(
 ))
 # Save the complete trained pipeline
 joblib.dump(model, "churn_model.joblib")
-
 print("\nModel saved successfully!")
