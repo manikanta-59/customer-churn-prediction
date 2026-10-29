@@ -85,6 +85,29 @@ These results represent an initial baseline. The model detects some customers wh
 - Predicted churn or no-churn classification.
 - Local web interface powered by Streamlit.
 
+## Decision Threshold Experiment
+
+The Logistic Regression model was evaluated at different classification thresholds using the same held-out test set.
+
+| Threshold | Accuracy | Precision | Recall | F1 Score |
+|---:|---:|---:|---:|---:|
+| 0.50 | 80.55% | 65.72% | 55.88% | 60.40% |
+| 0.40 | 77.79% | 56.95% | 66.84% | 61.50% |
+| 0.35 | 76.51% | 54.43% | 70.59% | 61.47% |
+| 0.30 | 74.95% | 51.93% | 75.40% | 61.50% |
+
+### Observations
+
+- Lowering the threshold increases recall, allowing the model to identify more customers who are likely to churn.
+- Precision decreases at lower thresholds because more customers who would not churn are incorrectly flagged.
+- The F1 score remains nearly the same across thresholds 0.40, 0.35, and 0.30.
+
+### Selected Threshold
+
+A threshold of **0.40** was selected as a provisional operating point because it improves recall while maintaining a reasonable balance between precision and recall.
+
+The final threshold should depend on business requirements and the relative costs of false positives and false negatives. These results are based on the current held-out test set and may not generalize to new data.
+
 The estimated probability is a model output, not a guarantee of future customer behaviour.
 
 ## Installation and Setup
