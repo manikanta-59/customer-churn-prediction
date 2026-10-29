@@ -65,3 +65,8 @@ def test_prediction_probability():
     probability = model.predict_proba(customer)[0][1]
 
     assert 0.0 <= probability <= 1.0
+def test_churn_threshold():
+    threshold = 0.40
+
+    assert int(0.45 >= threshold) == 1
+    assert int(0.35 >= threshold) == 0
