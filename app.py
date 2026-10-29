@@ -92,9 +92,11 @@ customer = pd.DataFrame([{
 }])
 
 if st.button("Predict churn"):
-    prediction = model.predict(customer)[0]
     probabilities = model.predict_proba(customer)[0]
     churn_probability = probabilities[1]
+
+    threshold = 0.40
+    prediction = int(churn_probability >= threshold) 
 
     st.metric(
         "Estimated churn probability",
